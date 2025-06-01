@@ -1,0 +1,29 @@
+/* Custom styles for image preview */
+#preview-image {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* Custom animation for loading spinner */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Smooth transitions */
+.transition {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.hover-scale:hover {
+    transform: scale(1.02);
+} 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Style Image Caption Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Social Media Caption Generator</h1>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <form id="upload-form" onsubmit="return false;" class="space-y-4">
+                    <div class="flex items-center justify-center w-full">
+                        <label class="w-full flex flex-col items-center px-4 py-6 bg-white rounded-lg shadow-lg tracking-wide border border-blue-500 cursor-pointer hover:bg-blue-500 hover:text-white transition duration-300">
+                            <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                            </svg>
+                            <span class="mt-2 text-sm">Select an image</span>
+                            <input type="file" id="image-upload" class="hidden" accept="image/*" />
+                        </label>
+                    </div>
+                    <div class="flex justify-center">
+                        <button id="generate-btn" class="px-6 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-300 disabled:opacity-50" disabled>
+                            Generate Caption
+                        </button>
+                    </div>
+                </form>
+
+                <div id="preview-container" class="hidden mt-8 space-y-4">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <!-- Instagram-like image container -->
+                        <div class="relative pb-[100%]">
+                            <img id="preview-image" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-contain bg-black" />
+                        </div>
+                        
+                        <!-- Caption container -->
+                        <div id="result" class="hidden p-4 space-y-2">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-gray-200"></div>
+                                <span class="font-semibold">AI Caption Generator</span>
+                            </div>
+                            <p id="caption-text" class="text-gray-800 whitespace-pre-line"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading spinner -->
+                <div id="loading" class="hidden mt-8 flex justify-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                </div>
+
+                <!-- Error message -->
+                <div id="error" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-lg"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
